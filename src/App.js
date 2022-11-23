@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 
 function App() {
 	return (
-		<div className="">
+		<div className="bg-[#F5F6FA]">
 			<Routes>
 				<Route path="/" element={<Login />} />
 				<Route path="/dashboard/" element={<VirtualAccount />}>
