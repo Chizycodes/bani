@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Dashboardlayout from '../../components/DashboardLayout';
 import { Button } from '../../components/Button';
 import { Stats } from '../../components/virtualAccount/Stats';
@@ -6,6 +6,7 @@ import Table from '../../components/virtualAccount/Table';
 import { ActivityFeed } from '../../components/virtualAccount/ActivityFeed';
 
 export const VirtualAccount = () => {
+  const [feed, setFeed] = useState("");
 	return (
 		<div>
 			<Dashboardlayout>
@@ -41,7 +42,7 @@ export const VirtualAccount = () => {
 								<Stats />
 							</div>
 							<div>
-								<Table />
+								<Table setFeed={setFeed} />
 							</div>
 						</section>
 						<section className="col-span-4">

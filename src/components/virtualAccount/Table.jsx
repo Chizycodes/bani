@@ -1,37 +1,7 @@
 import React, { useState } from 'react';
+import { tableData } from '../../data';
 
-const tableData = [
-	{
-		bankName: 'Polaris Bank Limited',
-		logo: '/images/polaris.svg',
-		accNumber: '08023221144',
-		branch: 'Ikeja',
-		inflow: 'NGN 100,000.00',
-	},
-	{
-		bankName: 'Guranty Trust Holding ',
-		logo: '/images/gt.svg',
-		accNumber: '08023221144',
-		branch: 'Lekki II',
-		inflow: 'NGN 100,000.00',
-	},
-	{
-		bankName: 'Providus Bank PLC',
-		logo: '/images/providus.svg',
-		accNumber: '08023221144',
-		branch: 'Lekki II',
-		inflow: 'NGN 100,000.00',
-	},
-	{
-		bankName: 'First Bank of Nigeria',
-		logo: '/images/firstbank.svg',
-		accNumber: '08023221144',
-		branch: 'Abuja',
-		inflow: 'NGN 100,000.00',
-	},
-];
-
-const Table = () => {
+const Table = ({ setFeed }) => {
 	const [show, setShow] = useState(null);
 	return (
 		<div className="py-[36px] bg-[#ffffff] rounded-lg min-h-full">
@@ -81,7 +51,8 @@ const Table = () => {
 							return (
 								<tr
 									key={i}
-									className="h-20 text-sm leading-none text-gray-800 bg-white hover:bg-gray-100 border-b border-t border-[#E1E1E1CC]"
+									className="h-20 text-sm leading-none text-gray-800 bg-white hover:bg-[#F5F6FAB2] hover:border-l-2 hover:border-l-[#5444F2] border-t border-t-[#E1E1E1CC] cursor-pointer"
+									onClick={() => setFeed(item)}
 								>
 									<td className="pl-4 ">
 										<div className="flex items-center">
