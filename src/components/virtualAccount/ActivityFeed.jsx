@@ -1,7 +1,7 @@
 import React from 'react';
 import { transactions } from '../../data';
 
-export const ActivityFeed = () => {
+export const ActivityFeed = ({ feed }) => {
 	return (
 		<div className="bg-[#ffffff] rounded-lg py-[23px]">
 			<div className="px-4 flex items-center justify-between mb-[23px]">

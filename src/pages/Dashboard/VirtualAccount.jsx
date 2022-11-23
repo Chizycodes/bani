@@ -46,7 +46,7 @@ export const VirtualAccount = () => {
 							</div>
 						</section>
 						<section className="col-span-4">
-							<ActivityFeed />
+							<ActivityFeed feed={feed} />
 						</section>
 					</div>
 				</div>
