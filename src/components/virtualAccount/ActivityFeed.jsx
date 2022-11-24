@@ -97,9 +97,9 @@ export const ActivityFeed = ({ feed }) => {
 										<p className="">{item?.date}</p>
 									</td>
 
-									<td className="px-7 2xl:px-0 relative">
+									<td className="">
 										<button className="focus:outline-none pl-7">
-											<img src="/images/black-arrow.svg" alt="more" />
+											<img src="/images/black-arrow.svg" className='w-[20px]' alt="more" />
 										</button>
 									</td>
 								</tr>
