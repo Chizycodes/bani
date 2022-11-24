@@ -3,12 +3,39 @@ import React from 'react';
 export const TopNav = ({ profile, setProfile, show, setShow }) => {
 	return (
 		<nav className="h-[78px] flex items-center justify-between bg-[#ffffff] shadow relative z-10 pl-6">
-			<img src="/images/logo.svg" alt="Logo.svg" className="lg:hidden block" />
-			<div className="hidden lg:flex w-full pr-6">
-				<div className="w-1/2 h-full hidden lg:flex items-center pl-6 pr-24"></div>
-				<div className="w-1/2 hidden lg:flex">
+			<div className="flex items-center gap-2">
+				<div className="text-gray-600 visible xl:hidden relative" onClick={() => setShow(!show)}>
+					{show ? (
+						' '
+					) : (
+						<svg
+							aria-label="Main Menu"
+							aria-haspopup="true"
+							xmlns="http://www.w3.org/2000/svg"
+							className="icon icon-tabler icon-tabler-menu cursor-pointer"
+							width={30}
+							height={30}
+							viewBox="0 0 24 24"
+							strokeWidth="1.5"
+							stroke="currentColor"
+							fill="none"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+						>
+							<path stroke="none" d="M0 0h24v24H0z" />
+							<line x1={4} y1={8} x2={20} y2={8} />
+							<line x1={4} y1={16} x2={20} y2={16} />
+						</svg>
+					)}
+				</div>
+				<img src="/images/logo.svg" alt="Logo.svg" className="xl:hidden block" />
+			</div>
+
+			<div className="flex w-full pr-6">
+				<div className="w-1/2 h-full flex items-center pl-6 pr-24"></div>
+				<div className="w-1/2 flex">
 					<div className="w-full flex items-center pl-8 gap-3 justify-end">
-						<div className="w-[32px] h-[32px] rounded-full bg-[#F5F6FA] flex items-center justify-center">
+						<div className="min-w-[32px] min-h-[32px] rounded-full bg-[#F5F6FA] flex items-center justify-center">
 							<div className="relative cursor-pointer">
 								<img src="/images/notification.svg" alt="notification bell" />
 								<div className="w-[6px] h-[6px] rounded-full bg-primary absolute inset-0 mt-[3px] mr-[3px] m-auto" />
@@ -67,12 +94,12 @@ export const TopNav = ({ profile, setProfile, show, setShow }) => {
 								)}
 							</div>
 
-							<div className="flex items-center bg-[#f5f6fa] py-2 px-3 gap-2 rounded-lg">
+							<div className="flex items-center bg-[#f5f6fa] py-2 px-3 gap-2 rounded-xl">
 								<div className="w-[32px] h-[32px] text-[#fff] bg-primary rounded-full flex items-center justify-center text-base">
-								JT
+									JT
 								</div>
-								<div>
-									<p className='text-base text-[#000000] font-bold'>JT Industry Limit..</p>
+								<div className='hidden md:block'>
+									<p className="text-base text-[#000000] font-bold">JT Industry Limit..</p>
 									<p className="text-[#65717c] text-sm">JamesT@gmail.com</p>
 								</div>
 
@@ -98,30 +125,6 @@ export const TopNav = ({ profile, setProfile, show, setShow }) => {
 						</div>
 					</div>
 				</div>
-			</div>
-			<div className="text-gray-600 mr-8 visible lg:hidden relative" onClick={() => setShow(!show)}>
-				{show ? (
-					' '
-				) : (
-					<svg
-						aria-label="Main Menu"
-						aria-haspopup="true"
-						xmlns="http://www.w3.org/2000/svg"
-						className="icon icon-tabler icon-tabler-menu cursor-pointer"
-						width={30}
-						height={30}
-						viewBox="0 0 24 24"
-						strokeWidth="1.5"
-						stroke="currentColor"
-						fill="none"
-						strokeLinecap="round"
-						strokeLinejoin="round"
-					>
-						<path stroke="none" d="M0 0h24v24H0z" />
-						<line x1={4} y1={8} x2={20} y2={8} />
-						<line x1={4} y1={16} x2={20} y2={16} />
-					</svg>
-				)}
 			</div>
 		</nav>
 	);

@@ -1,86 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-const navItems = {
-	firstSection: [
-		{
-			title: 'Welcome',
-			icon: '/images/radar-2.svg',
-			link: '#',
-		},
-		{
-			title: 'Compliance',
-			icon: '/images/document.svg',
-			link: '#',
-		},
-		{
-			title: 'Overview',
-			icon: '/images/category.svg',
-			link: '#',
-		},
-		{
-			title: 'Business',
-			header: true,
-		},
-		{
-			title: 'Products',
-			icon: '/images/radar-2.svg',
-			link: '#',
-		},
-		{
-			title: 'Customers',
-			icon: '/images/document.svg',
-			link: '#',
-		},
-		{
-			title: 'Orders',
-			icon: '/images/category.svg',
-			link: '#',
-		},
-		{
-			title: 'Payments',
-			header: true,
-		},
-		{
-			title: 'Wallets',
-			icon: '/images/radar-2.svg',
-			link: '#',
-		},
-		{
-			title: 'Transactions',
-			icon: '/images/document.svg',
-			link: '#',
-		},
-		{
-			title: 'Virtual Account',
-			icon: '/images/category.svg',
-			link: '#',
-		},
-	],
-
-	bottom: [
-		{
-			title: 'Live mode',
-			icon: '/images/radar-2.svg',
-			link: '#',
-		},
-		{
-			title: 'Settings',
-			icon: '/images/document.svg',
-			link: '#',
-		},
-		{
-			title: 'Audit logs',
-			icon: '/images/category.svg',
-			link: '#',
-		},
-	],
-};
+import { navItems } from '../data';
 
 export const SideBar = ({ show, setShow }) => {
 	return (
 		<>
-			<div className="absolute lg:relative w-64 h-screen overflow-y-auto shadow bg-[#FFFFFF] hidden lg:block">
+			<div className="absolute xl:relative w-64 h-screen overflow-y-auto shadow bg-[#FFFFFF] hidden xl:block">
 				<div className="h-16 w-full flex items-center px-8">
 					<img src="/images/logo.svg" alt="" />
 				</div>
@@ -90,6 +15,8 @@ export const SideBar = ({ show, setShow }) => {
 							return (
 								<li
 									className={`pl-6 cursor-pointer leading-4  focus:outline-none ${
+										item.id === 10 ? 'text-primary' : ''
+									} ${
 										item.header
 											? 'text-[#000000] font-bold mb-[22px] mt-[33px] uppercase cursor-default text-sm'
 											: 'mb-5 text-[#65717C] hover:text-[#5444F2] text-base'
@@ -101,11 +28,13 @@ export const SideBar = ({ show, setShow }) => {
 												<img src={item.icon} alt={item.title} />
 											</div>
 										)}
-
-										<Link to={item.link} className="">
-											{item.title}
-										</Link>
+										<div>
+											<Link to={item.link} className="">
+												{item.title}
+											</Link>
+										</div>
 									</div>
+									{item.id === 10 && <p className="text-[#02BA81] text-sm font-[300] pl-10">New</p>}
 								</li>
 							);
 						})}
@@ -143,8 +72,8 @@ export const SideBar = ({ show, setShow }) => {
 				}
 				id="mobile-nav"
 			>
-				<div className="bg-gray-800 opacity-50 absolute h-screen w-full lg:hidden" onClick={() => setShow(!show)} />
-				<div className="absolute z-40 sm:relative w-64 md:w-96 shadow pb-4 bg-[#FFFFFF] lg:hidden transition duration-150 ease-in-out h-screen overflow-y-auto">
+				<div className="bg-[#000000] opacity-50 absolute h-screen w-full xl:hidden" onClick={() => setShow(!show)} />
+				<div className="absolute z-40 sm:relative w-64 md:w-96 shadow pb-4 bg-[#FFFFFF] xl:hidden transition duration-150 ease-in-out h-screen overflow-y-auto">
 					<div className="flex flex-col justify-between h-full w-full">
 						<div>
 							<div className="flex items-center justify-between px-8">
@@ -174,7 +103,7 @@ export const SideBar = ({ show, setShow }) => {
 									</svg>
 								</div>
 							</div>
-							<div className="flex flex-col justify-between overflow-y-auto ">
+							<div className="flex flex-col justify-between h-[calc(100vh-64px)] overflow-y-auto ">
 								<ul className="py-3">
 									{navItems.firstSection.map((item, i) => {
 										return (

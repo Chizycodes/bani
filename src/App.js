@@ -8,9 +8,8 @@ function App() {
 		<div className="bg-[#F5F6FA]">
 			<Routes>
 				<Route path="/" element={<Login />} />
-				<Route path="/dashboard/" element={<VirtualAccount />}>
-					<Route path="/dashboard/account" element={<VirtualAccount />} />
-				</Route>
+				<Route path="/dashboard/" element={<VirtualAccount />} />
+				<Route path="/dashboard/virtual-account" element={<VirtualAccount />} />
 
 				<Route path="*" element={<h1>PAGE NOT FOUND</h1>} />
 			</Routes>

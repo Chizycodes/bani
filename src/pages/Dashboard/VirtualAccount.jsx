@@ -4,16 +4,17 @@ import { Button } from '../../components/Button';
 import { Stats } from '../../components/virtualAccount/Stats';
 import Table from '../../components/virtualAccount/Table';
 import { ActivityFeed } from '../../components/virtualAccount/ActivityFeed';
+import { tableData } from '../../data';
 
 export const VirtualAccount = () => {
-  const [feed, setFeed] = useState("");
+	const [feed, setFeed] = useState(tableData[1]);
 	return (
 		<div>
 			<Dashboardlayout>
-				<div className='h-[calc(100vh-3rem)]'>
+				<div className="h-[calc(100vh-3rem)]">
 					<div className="flex items-center justify-between mb-[27px]">
 						<h1 className="twxt-[#000000] text-[20px]">Virtual Account Dashboard</h1>
-						<div className="flex items-center gap-3">
+						<div className="flex items-center gap-3 flex-wrap justify-end">
 							<div>
 								<Button
 									type=""
@@ -37,7 +38,7 @@ export const VirtualAccount = () => {
 					</div>
 
 					<div className="grid grid-cols-12 gap-5 w-full">
-						<section className="col-span-8">
+						<section className="col-span-12 lg:col-span-8">
 							<div className="mb-4">
 								<Stats />
 							</div>
@@ -45,7 +46,7 @@ export const VirtualAccount = () => {
 								<Table setFeed={setFeed} />
 							</div>
 						</section>
-						<section className="col-span-4">
+						<section className="col-span-12 lg:col-span-4">
 							<ActivityFeed feed={feed} />
 						</section>
 					</div>
