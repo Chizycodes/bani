@@ -81,7 +81,7 @@ export const ActivityFeed = ({ feed }) => {
 							return (
 								<tr
 									key={i}
-									className="h-12 text-sm font-medium leading-none text-gray-800 bg-white hover:bg-[#F5F6FAB2] border-t border-t-[#E1E1E1CC] cursor-pointer"
+									className="h-12 text-sm font-medium leading-none bg-white hover:bg-[#F5F6FAB2] border-t-[0.5px] border-t-[#E1E1E1CC] cursor-pointer"
 								>
 									<td className="">
 										<div className="flex items-center">
