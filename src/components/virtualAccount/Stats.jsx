@@ -1,7 +1,4 @@
-import React, { useState } from 'react';
-
 export const Stats = () => {
-	const [lang , setLang] = useState("English")
 	return (
 		<div className="bg-[#ffffff] border-[0.5px] border-[#E1E1E1] rounded-lg py-[34px] px-[30px] flex items-center gap-3 justify-between w-full overflow-x-auto">
 			<div className="min-w-fit">
