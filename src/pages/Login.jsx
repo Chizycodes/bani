@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -14,6 +15,21 @@ const Login = () => {
 		navigate('/dashboard');
 		console.log(values);
 	};
+
+	window.snapKitInit = () => {
+		// eslint-disable-next-line no-undef
+		snap.loginkit.mountButton('login-button', {
+			clientId: '45a9fcaf-c1a4-40a0-ace6-e86479b58547',
+			redirectURI: 'https://chizycodes-bani.netlify.app',
+			scopeList: ['user.display_name', 'user.bitmoji.avatar'],
+			handleResponseCallback: () => {
+				snap.loginkit.fetchUserInfo().then((data) => {
+					console.log(data);
+				});
+			},
+		});
+	};
+
 	return (
 		<div className="bg-[#F5F6FA] w-full flex justify-center min-h-screen pt-[50px]">
 			<div className="max-w-[426px] w-full mx-5">
@@ -78,6 +94,13 @@ const Login = () => {
 							Log in
 						</button>
 					</form>
+
+					<div
+						type="button"
+						className="mt-5"
+						id="login-button"
+					>
+					</div>
 				</div>
 			</div>
 		</div>
