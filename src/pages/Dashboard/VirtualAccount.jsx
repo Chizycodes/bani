@@ -72,7 +72,7 @@ export const VirtualAccount = () => {
 		if (!account) {
 			openModal.current.click();
 		}
-	}, []);
+	}, [account]);
 	return (
 		<>
 			<div>
