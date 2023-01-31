@@ -1,9 +1,25 @@
 /* eslint-disable no-undef */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { UserAuth } from '../context/AuthContext';
 
 const Login = () => {
 	const navigate = useNavigate();
+	const { googleSignIn, user } = UserAuth();
+
+
+	const handleGoogleSignIn = async () => {
+		try {
+			await googleSignIn();
+		} catch (error) {}
+	};
+
+	useEffect(() => {
+		if (user != null) {
+			navigate('/dashboard');
+		}
+	}, [user, navigate]);
+
 	const [values, setValues] = useState({
 		email: '',
 		password: '',
@@ -20,8 +36,8 @@ const Login = () => {
 		// eslint-disable-next-line no-undef
 		snap.loginkit.mountButton('login-button', {
 			clientId: '45a9fcaf-c1a4-40a0-ace6-e86479b58547',
-			redirectURI: 'https://chizycodes-bani.netlify.app',
-			scopeList: ['user.display_name', 'user.bitmoji.avatar'],
+			redirectURI: 'http://localhost:3001',
+			scopeList: ['user.display_name'],
 			handleResponseCallback: () => {
 				snap.loginkit.fetchUserInfo().then((data) => {
 					console.log(data);
@@ -95,12 +111,17 @@ const Login = () => {
 						</button>
 					</form>
 
-					<div
-						type="button"
-						className="mt-5"
-						id="login-button"
+					<div type="button" className="mt-5" id="login-button"></div>
+
+					<button
+						className="rounded w-full flex items-center h-[50px] p-1 hover:scale-105 transition delay-100 duration-300 ease-in-out bg-[#5444F2] text-[#ffffff] mt-5"
+						onClick={handleGoogleSignIn}
 					>
-					</div>
+						<div className="bg-[#fff] h-full flex items-center justify-center w-[50px]">
+							<img src="/images/google.png" alt="google icon" className="w-[20px]" />
+						</div>
+						<span className="px-5 font-bold">Sign in with Google</span>
+					</button>
 				</div>
 			</div>
 		</div>

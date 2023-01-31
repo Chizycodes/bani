@@ -1,6 +1,8 @@
 import React from 'react';
+import { UserAuth } from '../context/AuthContext';
 
 export const TopNav = ({ profile, setProfile, show, setShow }) => {
+	const { logOut, user } = UserAuth();
 	return (
 		<nav className="h-[78px] flex items-center justify-between bg-[#ffffff] shadow relative z-10 pl-6">
 			<div className="flex items-center gap-2">
@@ -85,7 +87,9 @@ export const TopNav = ({ profile, setProfile, show, setShow }) => {
 													<path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
 													<path d="M7 12h14l-3 -3m0 6l3 -3" />
 												</svg>
-												<span className="text-sm ml-2">Sign out</span>
+												<span className="text-sm ml-2" onClick={() => logOut()}>
+													Sign out
+												</span>
 											</div>
 										</li>
 									</ul>
@@ -98,9 +102,9 @@ export const TopNav = ({ profile, setProfile, show, setShow }) => {
 								<div className="w-[32px] h-[32px] text-[#fff] bg-primary rounded-full flex items-center justify-center text-base">
 									JT
 								</div>
-								<div className='hidden md:block'>
-									<p className="text-base text-[#000000] font-bold">JT Industry Limit..</p>
-									<p className="text-[#65717c] text-sm">JamesT@gmail.com</p>
+								<div className="hidden md:block">
+									<p className="text-base text-[#000000] font-bold">{user?.displayName}</p>
+									<p className="text-[#65717c] text-sm">{user?.email}</p>
 								</div>
 
 								<div className="cursor-pointer text-gray-600">
