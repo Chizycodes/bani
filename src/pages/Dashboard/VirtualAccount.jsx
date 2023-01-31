@@ -45,7 +45,7 @@ export const VirtualAccount = () => {
 		setLoading(true);
 		await axios
 			.post(
-				'http://154.113.16.142:8088/appdevapi/api/PiPCreateReservedAccountNumber',
+				'https://154.113.16.142:8088/appdevapi/api/PiPCreateReservedAccountNumber',
 				{
 					account_name: user?.displayName,
 					bvn: bvn,
